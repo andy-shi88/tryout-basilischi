@@ -16,14 +16,14 @@ class Main extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      posts: ds
+      contact: ds
     };
   }
   updatePostsState(){
     //fetch all data into the state
     api.getPosts().then((res)=>{
       this.setState({
-        posts: ds.cloneWithRows(res)
+        contact: ds.cloneWithRows(res)
       });
     })
   }
@@ -32,7 +32,7 @@ class Main extends Component{
     //fetch all data into the state
     api.getPosts().then((res)=>{
       this.setState({
-        posts: ds.cloneWithRows(res)
+        contact: ds.cloneWithRows(res)
       });
     })
   }
@@ -67,7 +67,7 @@ class Main extends Component{
         style={styles.PostMenu}>
           <Text
             style={styles.postTitle}>
-            {rowData.title}
+            {rowData.firstname}
           </Text>
       </TouchableHighlight>
     );
@@ -78,7 +78,7 @@ class Main extends Component{
       <View style={styles.container}>
         <View style={styles.PostList}>
           <ListView
-            dataSource={this.state.posts}
+            dataSource={this.state.contact}
             renderRow={this.renderRow.bind(this)}
           />
         </View>
