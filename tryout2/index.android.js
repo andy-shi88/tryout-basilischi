@@ -9,25 +9,35 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Navigator
 } from 'react-native';
+
+var Main = require('./app/components/main/Main');
 
 export default class tryout2 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute = {{
+          id:'Main'
+        }}
+        renderScene={
+          this.navigatorRenderScene
+        }
+      />
     );
+  }
+  navigatorRenderScene(route, navigator) {
+    _navigator = navigator;
+    switch (route.id) {
+      case 'Main':
+        return (<Main navigator={navigator} title='Main' />)
+        break;
+      default:
+        break;
+
+    }
   }
 }
 
