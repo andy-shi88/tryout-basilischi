@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 
 var Main = require('./app/components/main/Main');
+var Contact = require('./app/components/main/Contact');
+
 
 export default class tryout2 extends Component {
   render() {
@@ -33,6 +35,9 @@ export default class tryout2 extends Component {
     switch (route.id) {
       case 'Main':
         return (<Main navigator={navigator} title='Main' />)
+        break;
+      case 'Contact':
+        return (<Contact navigator={navigator} title='Contact' contact={route.contact}/>)
         break;
       default:
         break;

@@ -4,18 +4,24 @@
       "id": 1,
       "firstname": "Andy",
       "lastname": "Herman",
+      "phone": "089655219744",
+      "address": "Earth",
       "organization": "Basilischi"
     },
     {
       "id": 2,
-      "firstname": "Fandy",
+      "firstname": "Andy",
       "lastname": "Herman",
+      "phone": "089655219744",
+      "address": "Earth",
       "organization": "Basilischi"
     },
     {
       "id": 3,
-      "firstname": "Fendy",
+      "firstname": "Andy",
       "lastname": "Herman",
+      "phone": "089655219744",
+      "address": "Earth",
       "organization": "Basilischi"
     }
   ]

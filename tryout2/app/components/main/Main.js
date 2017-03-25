@@ -37,24 +37,11 @@ class Main extends Component{
     })
   }
   //event listener functions
-  onButtonPress() {
-    //console.log(this.state.postName);
-    this.props.navigator.push({
-      id: 'CreatePost',
-      functions: this
-    });
-  }
-  ViewTask1() {
-    //console.log(this.state.postName);
-    this.props.navigator.push({
-      id: 'Task1'
-    });
-  }
+
   onPostSelected(rowData) {
     this.props.navigator.push({
-      id: 'Post',
-      post: rowData,
-      functions: this
+      id: 'Contact',
+      contact: rowData
     });
   }
   renderRow(rowData, sectionId, rowId) {
@@ -82,12 +69,6 @@ class Main extends Component{
             renderRow={this.renderRow.bind(this)}
           />
         </View>
-        <TouchableHighlight onPress={this.onButtonPress.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}>Create Post</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this.ViewTask1.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}>View Task 1</Text>
-        </TouchableHighlight>
       </View>
     );
   }
