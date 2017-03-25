@@ -38,7 +38,7 @@ class Main extends Component{
   }
   //event listener functions
 
-  onPostSelected(rowData) {
+  onContactSelected(rowData) {
     this.props.navigator.push({
       id: 'Contact',
       contact: rowData
@@ -50,7 +50,7 @@ class Main extends Component{
         key={rowId}
         data={rowData}
         underlayColor="#cccccc"
-        onPress={this.onPostSelected.bind(this, rowData)}
+        onPress={this.onContactSelected.bind(this, rowData)}
         style={styles.PostMenu}>
           <Text
             style={styles.postTitle}>
@@ -58,6 +58,13 @@ class Main extends Component{
           </Text>
       </TouchableHighlight>
     );
+  }
+  onButtonPress() {
+    //console.log(this.state.postName);
+    this.props.navigator.push({
+      id: 'CreateContact',
+      callback: this
+    });
   }
   //render
   render() {
@@ -69,6 +76,9 @@ class Main extends Component{
             renderRow={this.renderRow.bind(this)}
           />
         </View>
+        <TouchableHighlight onPress={this.onButtonPress.bind(this)} style={styles.button}>
+          <Text style={styles.buttonText}>Add Contact</Text>
+        </TouchableHighlight>
       </View>
     );
   }

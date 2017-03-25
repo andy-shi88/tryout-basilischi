@@ -27,13 +27,15 @@ let api = {
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
           body: JSON.stringify({
             id: rowData.id,
-            userId: rowData.userId,
-            title: rowData.title,
-            body: rowData.body
+            firstname: rowData.firstname,
+            lastname: rowData.lastname,
+            phone: rowData.phone,
+            address: rowData.address,
+            organization: rowData.organization
           })
           }
         ).done(()=>{
-      console.log(rowData.title + ' with id: ' + rowData.id + ' have been POSTED  !');
+      console.log(rowData.id + ' with id: ' + rowData.id + ' have been POSTED  !');
     });
   }
 }

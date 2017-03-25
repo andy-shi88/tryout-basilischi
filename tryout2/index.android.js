@@ -15,6 +15,7 @@ import {
 
 var Main = require('./app/components/main/Main');
 var Contact = require('./app/components/main/Contact');
+var CreateContact = require('./app/components/main/CreateContact');
 
 
 export default class tryout2 extends Component {
@@ -38,6 +39,10 @@ export default class tryout2 extends Component {
         break;
       case 'Contact':
         return (<Contact navigator={navigator} title='Contact' contact={route.contact}/>)
+        break;
+
+      case 'CreateContact':
+        return (<CreateContact navigator={navigator} title='Create Contact' callback={route.callback}/>)
         break;
       default:
         break;
