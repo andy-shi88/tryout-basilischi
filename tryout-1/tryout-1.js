@@ -33,7 +33,7 @@ let arr_text = fileToArray(file_path);
 console.log("Number of words = " +arr_text.length);
 console.log("Number of decimals = " + total_number_count);
 
-console.log("they are = ");
+console.log("the number are = ");
 for(let i in number) {
   console.log(number[i] + ", ")
 }
@@ -49,4 +49,9 @@ console.log("Total of number = " + total_number);
 // var unique = arr_text.filter( onlyUnique );
 
 let unique = [...new Set(arr_text)];
-console.log("number of unique words = " + unique.length);
+console.log("number of unique words and number = " + unique.length);
+console.log("they are: ");
+
+for(let i in unique) {
+  console.log(unique[i] + ", ")
+}
