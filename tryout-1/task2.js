@@ -1,6 +1,7 @@
 "use strict";
 //import lib
 let request = require("request");
+let cheerio = require("cheerio");
 //check param
 if (process.argv.length <= 2) {
   // console.log("Usage: " + __filename + " SOME_PARAM");
@@ -16,10 +17,15 @@ let isHtml = function(contentHeader) {
     return false;
   }
 }
+//main part [get page via request]
 request(url, function(error, res, body) {
-  // console.log(res.headers);
+  // let re = /(<\s*title[^>]*>(.+?)<\s*\/\s*title)>/gi;
   let conHead = "" + res.headers['content-type'];
+  var re = new RegExp("<title>(.*?)</title>", "i");
   if(isHtml(conHead))
     console.log("this is an HTML page");
-  // console.log(body);
+  //get web page title via cheerio
+  var $ = cheerio.load(body);
+  var webpageTitle = $("title").text();
+  console.log(webpageTitle);
 });
