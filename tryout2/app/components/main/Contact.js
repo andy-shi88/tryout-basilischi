@@ -26,7 +26,11 @@ class Contact extends Component {
     this.props.navigator.pop();
   }
   btEdit() {
-
+    this.props.navigator.push({
+      id: 'EditContact',
+      contact: this.state.contact,
+      callback: this.props.callback
+    });
   }
   btDelete(){
     api.deleteContact(this.state.contact);

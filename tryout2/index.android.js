@@ -16,6 +16,7 @@ import {
 var Main = require('./app/components/main/Main');
 var Contact = require('./app/components/main/Contact');
 var CreateContact = require('./app/components/main/CreateContact');
+var EditContact = require('./app/components/main/editContact');
 
 
 export default class tryout2 extends Component {
@@ -40,7 +41,9 @@ export default class tryout2 extends Component {
       case 'Contact':
         return (<Contact navigator={navigator} title='Contact' contact={route.contact} callback={route.callback}/>)
         break;
-
+      case 'EditContact':
+        return (<EditContact navigator={navigator} title='Edit Contact' contact={route.contact} callback={route.callback}/>)
+        break;
       case 'CreateContact':
         return (<CreateContact navigator={navigator} title='Create Contact' callback={route.callback}/>)
         break;

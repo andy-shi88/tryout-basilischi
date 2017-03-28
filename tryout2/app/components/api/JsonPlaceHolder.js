@@ -8,17 +8,20 @@ let api = {
       console.log(rowData.firstname + " " + rowData.lastname + ' with id: ' + rowData.id + ' have been deleted!');
     });
   },
-  updatePost(rowData) {
+  updateContact(rowData) {
     fetch(this.url + '/' + rowData.id,
           {method: 'PUT',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
           body: JSON.stringify({
-            title: rowData.title,
-            body: rowData.body
+            firstname: rowData.firstname,
+            lastname: rowData.lastname,
+            phone: rowData.phone,
+            address: rowData.address,
+            organization: rowData.organization
           })
           }
         ).done(()=>{
-      console.log('POST with id: ' + rowData.id + ' have been UPDATED!');
+      console.log('Contact with id: ' + rowData.id + ' have been UPDATED!');
     });
   },
   createContact(rowData) {
