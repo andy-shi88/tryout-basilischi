@@ -23,22 +23,38 @@ class EditContact extends Component {
       contactPhone: this.props.contact.phone
     };
   }
+  checkInput() {
+    if(this.state.contactPhone === "" || this.state.contactFN === "" ||
+        this.state.contactLN === "" || this.state.contactAdd === "" ||
+        this.state.contactOrg === "") {
+          return false
+    }else {
+      return true;
+    }
+  }
   saveContact() {
-    let contact = {
-      id: this.state.contactId,
-      phone: this.state.contactPhone,
-      firstname: this.state.contactFN,
-      lastname: this.state.contactLN,
-      address: this.state.contactAdd,
-      organization: this.state.contactOrg
-    };
-    api.updateContact(contact);
-    Alert.alert( 'Status',
-                  'Contact have been updated!',
-                    [{text: 'OK', onPress: () => console.log('OK Pressed')}],
-                    { cancelable: false } );
-    this.props.callback.updateContactList();
-    this.props.navigator.popN(2); //go back 2 scene (to main scene)
+    if(this.checkInput) {
+      Alert.alert( 'Status',
+                    'One (or more) of the field is not filled yet!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      { cancelable: false } );
+    } else {
+      let contact = {
+        id: this.state.contactId,
+        phone: this.state.contactPhone,
+        firstname: this.state.contactFN,
+        lastname: this.state.contactLN,
+        address: this.state.contactAdd,
+        organization: this.state.contactOrg
+      };
+      api.updateContact(contact);
+      Alert.alert( 'Status',
+                    'Contact have been updated!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      { cancelable: false } );
+      this.props.callback.updateContactList();
+      this.props.navigator.popN(2); //go back 2 scene (to main scene)
+    }
   }
   cancelEdit() {
     this.props.navigator.popN(1);//go back 2 scene (to main scene)

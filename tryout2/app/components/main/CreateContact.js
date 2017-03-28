@@ -22,21 +22,38 @@ class CreateContact extends Component {
       contactPhone: ''
     };
   }
+
+  checkInput() {
+    if(this.state.contactPhone === "" || this.state.contactFN === "" ||
+        this.state.contactLN === "" || this.state.contactAdd === "" ||
+        this.state.contactOrg === "") {
+          return false
+    }else {
+      return true;
+    }
+  }
   savePost() {
-    let contact = {
-      phone: this.state.contactPhone,
-      firstname: this.state.contactFN,
-      lastname: this.state.contactLN,
-      address: this.state.contactAdd,
-      organization: this.state.contactOrg
-    };
-    api.createContact(contact);
-    Alert.alert( 'Status' + this.state.postBody,
-                  'Content have been posted!',
-                    [{text: 'OK', onPress: () => console.log('OK Pressed')}],
-                    { cancelable: false } );
-    this.props.callback.updateContactList();
-    this.props.navigator.pop(0);
+    if(this.checkInput) {
+      Alert.alert( 'Status',
+                    'One (or more) of the field is not filled yet!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      { cancelable: false } );
+    } else {
+      let contact = {
+        phone: this.state.contactPhone,
+        firstname: this.state.contactFN,
+        lastname: this.state.contactLN,
+        address: this.state.contactAdd,
+        organization: this.state.contactOrg
+      };
+      api.createContact(contact);
+      Alert.alert( 'Status' + this.state.postBody,
+                    'Content have been posted!',
+                      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                      { cancelable: false } );
+      this.props.callback.updateContactList();
+      this.props.navigator.pop(0);
+    }
   }
   cancelPost() {
     this.props.navigator.pop(0);
