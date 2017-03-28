@@ -15,17 +15,15 @@ class CreateContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contactId: 4, //generate later
-      contactFN: 'Edi', //default user [whatever]
-      contactLN: 'Susanto',
-      contactAdd: 'Pontianak, Kota Baru',
-      contactOrg: 'Suntech',
-      contactPhone: '089544552255'
+      contactFN: '', //default user [whatever]
+      contactLN: '',
+      contactAdd: '',
+      contactOrg: '',
+      contactPhone: ''
     };
   }
   savePost() {
     let contact = {
-      id: this.state.contactId,
       phone: this.state.contactPhone,
       firstname: this.state.contactFN,
       lastname: this.state.contactLN,
@@ -46,13 +44,7 @@ class CreateContact extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          placeholder="Id"
-          style={styles.titleInput}
-          onChangeText={(text) => this.setState({contactId: text})}
-          multiline={true}>
-          {this.state.contactId}
-        </TextInput>
+        <Text>First Name: </Text>
         <TextInput
           placeholder="First Name"
           style={styles.titleInput}
@@ -60,6 +52,7 @@ class CreateContact extends Component {
           multiline={true}>
           {this.state.contactFN}
         </TextInput>
+        <Text>Last Name: </Text>
         <TextInput
           placeholder="Last Name"
           style={styles.titleInput}
@@ -67,6 +60,7 @@ class CreateContact extends Component {
           multiline={true}>
           {this.state.contactLN}
         </TextInput>
+        <Text>Address: </Text>
         <TextInput
           placeholder="Address"
           style={styles.titleInput}
@@ -74,6 +68,7 @@ class CreateContact extends Component {
           multiline={true}>
           {this.state.contactAdd}
         </TextInput>
+        <Text>Organization: </Text>
         <TextInput
           placeholder="Organization"
           style={styles.titleInput}
@@ -81,6 +76,7 @@ class CreateContact extends Component {
           multiline={true}>
           {this.state.contactOrg}
         </TextInput>
+        <Text>Phone: </Text>
         <TextInput
           placeholder="Phone"
           style={styles.titleInput}
