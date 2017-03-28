@@ -14,7 +14,11 @@ if (process.argv.length <= 2) {
 //load params
 let file_path = process.argv[2];
 //functions
-//functions
+let initArrayWithZeros = function(array){
+  for(let i = 0; i < array.length; i++) {
+    array[i] = 0;
+  }
+}
 let fileToArray = function(file) {
   let array = new Array();
   var fs = require('fs');
@@ -41,6 +45,20 @@ let printArray = function(array) {
   }
   console.log(result);
 }
+
+let printAndCountChars = function(total, unique) {
+  let count = new Array(unique.length);
+  initArrayWithZeros(count);
+  for(let i in unique) {
+    for (let j in total) {
+      if(unique[i] === total[j]) {
+        count[i] += 1;
+      }
+    }
+    console.log(unique[i] + " = " + count[i])
+  }
+}
+
 //main program alg
 let arr_text = fileToArray(file_path);
 //output
@@ -57,4 +75,4 @@ console.log("Sum of the decimals is = " + total_number);
 let unique = getUniqueChars(arr_text);
 console.log("Number of unique words and number = " + unique.length);
 console.log("They are: ");
-printArray(unique);
+printAndCountChars(arr_text, unique);
