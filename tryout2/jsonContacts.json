@@ -23,6 +23,14 @@
       "phone": "089655219744",
       "address": "Earth",
       "organization": "Basilischi"
+    },
+    {
+      "firstname": "Edi",
+      "lastname": "Susanto",
+      "phone": "089544552255",
+      "address": "Pontianak, Kota Baru",
+      "organization": "Suntech",
+      "id": 4
     }
   ]
 }

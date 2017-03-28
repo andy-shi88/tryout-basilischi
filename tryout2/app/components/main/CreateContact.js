@@ -15,12 +15,12 @@ class CreateContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contactId: 'no time to autogenerate id', //generate later
-      contactFN: '', //default user [whatever]
-      contactLN: '',
-      contactAdd: '',
-      contactOrg: '',
-      contactPhone: ''
+      contactId: 4, //generate later
+      contactFN: 'Edi', //default user [whatever]
+      contactLN: 'Susanto',
+      contactAdd: 'Pontianak, Kota Baru',
+      contactOrg: 'Suntech',
+      contactPhone: '089544552255'
     };
   }
   savePost() {
@@ -31,8 +31,8 @@ class CreateContact extends Component {
       lastname: this.state.contactLN,
       address: this.state.contactAdd,
       organization: this.state.contactOrg
-    }
-    api.createPost(contact);
+    };
+    api.createContact(contact);
     Alert.alert( 'Status' + this.state.postBody,
                   'Content have been posted!',
                     [{text: 'OK', onPress: () => console.log('OK Pressed')}],

@@ -21,12 +21,11 @@ let api = {
       console.log('POST with id: ' + rowData.id + ' have been UPDATED!');
     });
   },
-  createPost(rowData) {
-    fetch(this.url + '/' + rowData.id,
+  createContact(rowData) {
+    fetch(this.url,
           {method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
           body: JSON.stringify({
-            id: rowData.id,
             firstname: rowData.firstname,
             lastname: rowData.lastname,
             phone: rowData.phone,
@@ -35,7 +34,7 @@ let api = {
           })
           }
         ).done(()=>{
-      console.log(rowData.id + ' with id: ' + rowData.id + ' have been POSTED  !');
+      console.log('Data POSTED!');
     });
   }
 }
