@@ -38,7 +38,7 @@ export default class tryout2 extends Component {
         return (<Main navigator={navigator} title='Main' />)
         break;
       case 'Contact':
-        return (<Contact navigator={navigator} title='Contact' contact={route.contact}/>)
+        return (<Contact navigator={navigator} title='Contact' contact={route.contact} callback={route.callback}/>)
         break;
 
       case 'CreateContact':

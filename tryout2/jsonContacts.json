@@ -9,28 +9,28 @@
       "organization": "Basilischi"
     },
     {
-      "id": 2,
-      "firstname": "Andy",
-      "lastname": "Herman",
-      "phone": "089655219744",
-      "address": "Earth",
-      "organization": "Basilischi"
-    },
-    {
-      "id": 3,
-      "firstname": "Andy",
-      "lastname": "Herman",
-      "phone": "089655219744",
-      "address": "Earth",
-      "organization": "Basilischi"
-    },
-    {
       "firstname": "Edi",
       "lastname": "Susanto",
       "phone": "089544552255",
       "address": "Pontianak, Kota Baru",
       "organization": "Suntech",
       "id": 4
+    },
+    {
+      "firstname": "Derik",
+      "lastname": "Laurensius",
+      "phone": "0844552256",
+      "address": "Jakarta",
+      "organization": "UNTAR",
+      "id": 5
+    },
+    {
+      "firstname": "Marvin",
+      "lastname": "Leonard",
+      "phone": "0844888145",
+      "address": "Jakarta",
+      "organization": "Atma Jaya",
+      "id": 7
     }
   ]
 }

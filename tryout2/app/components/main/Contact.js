@@ -25,6 +25,18 @@ class Contact extends Component {
   btBack() {
     this.props.navigator.pop();
   }
+  btEdit() {
+
+  }
+  btDelete(){
+    api.deleteContact(this.state.contact);
+    Alert.alert( 'Status',
+                  'Post deleted!',
+                  [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+                  { cancelable: false });
+    this.props.callback.updateContactList();
+    this.props.navigator.pop();
+  }
   //render
   render() {
     return(
@@ -44,7 +56,14 @@ class Contact extends Component {
           <View style={styles.head}>
             <Text style={styles.titleText}>Adress: {this.state.contact.address}</Text>
           </View>
-
+          <View style={styles.menu}>
+            <TouchableHighlight underlayColor='#888888' onPress={this.btEdit.bind(this)} style={styles.button}>
+              <Text style={styles.buttonText}> Edit </Text>
+            </TouchableHighlight>
+            <TouchableHighlight underlayColor='#888888' onPress={this.btDelete.bind(this)} style={styles.button}>
+              <Text style={styles.buttonText}> Delete </Text>
+            </TouchableHighlight>
+          </View>
           <View style={styles.menu}>
           <TouchableHighlight underlayColor='#888888' onPress={this.btBack.bind(this)} style={styles.button}>
             <Text style={styles.buttonText}>Back</Text>

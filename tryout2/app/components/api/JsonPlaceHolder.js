@@ -3,9 +3,9 @@ let api = {
   getPosts() {
     return fetch(this.url, {method: 'GET', mode: 'cors'}).then((res) => res.json());
   },
-  deletePost(rowData) {
+  deleteContact(rowData) {
     fetch(this.url + '/' + rowData.id, {method: 'DELETE', mode: 'cors'}).done(()=>{
-      console.log(rowData.title + ' with id: ' + rowData.id + ' have been deleted!');
+      console.log(rowData.firstname + " " + rowData.lastname + ' with id: ' + rowData.id + ' have been deleted!');
     });
   },
   updatePost(rowData) {

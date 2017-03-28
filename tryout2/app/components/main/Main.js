@@ -19,7 +19,7 @@ class Main extends Component{
       contact: ds
     };
   }
-  updatePostsState(){
+  updateContactList(){
     //fetch all data into the state
     api.getPosts().then((res)=>{
       this.setState({
@@ -41,7 +41,8 @@ class Main extends Component{
   onContactSelected(rowData) {
     this.props.navigator.push({
       id: 'Contact',
-      contact: rowData
+      contact: rowData,
+      callback: this
     });
   }
   renderRow(rowData, sectionId, rowId) {

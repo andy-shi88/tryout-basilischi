@@ -35,7 +35,7 @@ class CreateContact extends Component {
                   'Content have been posted!',
                     [{text: 'OK', onPress: () => console.log('OK Pressed')}],
                     { cancelable: false } );
-    this.props.callback.updatePostsState();
+    this.props.callback.updateContactList();
     this.props.navigator.pop(0);
   }
   cancelPost() {
