@@ -54,7 +54,7 @@ class Main extends Component{
         style={styles.PostMenu}>
           <Text
             style={styles.postTitle}>
-            {rowData.firstname}
+            {rowData.firstname} {" " + rowData.lastname}
           </Text>
       </TouchableHighlight>
     );
