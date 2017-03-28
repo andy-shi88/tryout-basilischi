@@ -1,18 +1,26 @@
 "use strict";
-//var execSync = require('child_process').execSync;
+//imports libs
 let fs = require('fs');
 //global var
 let word_count = 0;
 let total_number = 0;
 let total_number_count = 0;
 let number = new Array();
+//check param
+if (process.argv.length <= 2) {
+  // console.log("Usage: " + __filename + " SOME_PARAM");
+  process.exit(-1);
+}
+//load params
+let file_path = process.argv[2];
+//functions
 //functions
 let fileToArray = function(file) {
   let array = new Array();
   var fs = require('fs');
   array = fs.readFileSync('file.txt').toString().split(" ");
   for(let i in array) {
-    if(!isNaN(parseInt(array[i]))){
+    if(!isNaN(parseInt(array[i]))){ //check is number
       total_number+= parseInt(array[i]);
       number[total_number_count] = parseInt(array[i]);
       total_number_count += 1;
@@ -21,37 +29,32 @@ let fileToArray = function(file) {
   return array;
 }
 
-
-if (process.argv.length <= 2) {
-  // console.log("Usage: " + __filename + " SOME_PARAM");
-  process.exit(-1);
+let getUniqueChars = function(array) {
+  let unique = [...new Set(arr_text)];
+  return unique;
 }
 
-var file_path = process.argv[2];
-
+let printArray = function(array) {
+  let result = "";
+  for(let i in array) {
+    result += array[i] + ", ";
+  }
+  console.log(result);
+}
+//main program alg
 let arr_text = fileToArray(file_path);
-console.log("Number of words = " +arr_text.length);
-console.log("Number of decimals = " + total_number_count);
-
-console.log("the number are = ");
-for(let i in number) {
-  console.log(number[i] + ", ")
-}
-console.log("Total of number = " + total_number);
-// let newArray = new Array();
-// for(let i in arr_text) {
-//   for(let k in arr_text) {
-//     if(!(arr_text[i] === arr_text[k]) && (i !== k)){
-//       if()
-//     }
-//   }
-// }
-// var unique = arr_text.filter( onlyUnique );
-
-let unique = [...new Set(arr_text)];
-console.log("number of unique words and number = " + unique.length);
-console.log("they are: ");
-
-for(let i in unique) {
-  console.log(unique[i] + ", ")
-}
+//output
+  //number of word count
+console.log("Word count = " + arr_text.length);
+  //number of decimal found
+console.log("Number of decimals found = " + total_number_count);
+  //printout the decimals found
+console.log("\t They are are = ");
+printArray(number);
+  //sum of the number
+console.log("Sum of the decimals is = " + total_number);
+  //find the unique characters
+let unique = getUniqueChars(arr_text);
+console.log("Number of unique words and number = " + unique.length);
+console.log("They are: ");
+printArray(unique);
