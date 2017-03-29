@@ -21,8 +21,11 @@ let initArrayWithZeros = function(array){
 }
 let fileToArray = function(file) {
   let array = new Array();
+  let string = "";
   var fs = require('fs');
-  array = fs.readFileSync('file.txt').toString().split(" ");
+  string = fs.readFileSync('file.txt').toString();
+  string = string.replace(/[.,:;'"&*!@#$%^()|<>?]/g,'');
+  array = string.split(" ");
   for(let i in array) {
     if(!isNaN(parseInt(array[i]))){ //check is number
       total_number+= parseInt(array[i]);
