@@ -21,6 +21,10 @@ class Contact extends Component {
       contact: this.props.contact
     };
   }
+  //lifecycle
+  componentWillUnmount(){
+    this.props.callback.updateContactList();
+  }
   //event listener
   btBack() {
     this.props.navigator.pop();
@@ -38,7 +42,7 @@ class Contact extends Component {
                   'Post deleted!',
                   [{text: 'OK', onPress: () => console.log('OK Pressed')}],
                   { cancelable: false });
-    this.props.callback.updateContactList();
+
     this.props.navigator.pop();
   }
   //render

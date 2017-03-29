@@ -22,7 +22,10 @@ class CreateContact extends Component {
       contactPhone: ''
     };
   }
-
+//lifecycle
+componentWillUnmount(){
+  this.props.callback.updateContactList();
+}
   checkInput() {
     if(this.state.contactPhone === "" || this.state.contactFN === "" ||
         this.state.contactLN === "" || this.state.contactAdd === "" ||
@@ -51,7 +54,6 @@ class CreateContact extends Component {
                     'Content have been posted!',
                       [{text: 'OK', onPress: () => console.log('OK Pressed')}],
                       { cancelable: false } );
-      this.props.callback.updateContactList();
       this.props.navigator.pop(0);
     }
   }
