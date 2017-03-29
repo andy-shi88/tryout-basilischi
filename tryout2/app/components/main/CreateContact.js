@@ -33,7 +33,7 @@ class CreateContact extends Component {
     }
   }
   savePost() {
-    if(this.checkInput) {
+    if(!this.checkInput) {
       Alert.alert( 'Status',
                     'One (or more) of the field is not filled yet!',
                       [{text: 'OK', onPress: () => console.log('OK Pressed')}],

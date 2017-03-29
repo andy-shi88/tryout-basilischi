@@ -30,11 +30,10 @@ class Main extends Component{
   //lifecycle configuration
   componentWillMount() {
     //fetch all data into the state
-    api.getPosts().then((res)=>{
-      this.setState({
-        contact: ds.cloneWithRows(res)
-      });
-    })
+    this.updateContactList();
+  }
+  componentWillReceiveProps(){
+    this.updateContactList();
   }
   //event listener functions
 

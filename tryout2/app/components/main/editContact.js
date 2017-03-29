@@ -23,6 +23,10 @@ class EditContact extends Component {
       contactPhone: this.props.contact.phone
     };
   }
+  //lifecycle
+  componentWillUnmount(){
+    this.props.callback.updateContactList();
+  }
   checkInput() {
     if(this.state.contactPhone === "" || this.state.contactFN === "" ||
         this.state.contactLN === "" || this.state.contactAdd === "" ||
@@ -33,7 +37,7 @@ class EditContact extends Component {
     }
   }
   saveContact() {
-    if(this.checkInput) {
+    if(!this.checkInput) {
       Alert.alert( 'Status',
                     'One (or more) of the field is not filled yet!',
                       [{text: 'OK', onPress: () => console.log('OK Pressed')}],
@@ -52,7 +56,6 @@ class EditContact extends Component {
                     'Contact have been updated!',
                       [{text: 'OK', onPress: () => console.log('OK Pressed')}],
                       { cancelable: false } );
-      this.props.callback.updateContactList();
       this.props.navigator.popN(2); //go back 2 scene (to main scene)
     }
   }
